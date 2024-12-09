@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkGiverDef>
+    <defName>BBLK_Doctor_PatientStory</defName>
+    <label>read to sick people</label>
+    <giverClass>Read_to_Patients.WorkGiver_PatientStory</giverClass>
+    <workType>Doctor</workType>
+    <workTags>
+      <li>Social</li>
+    </workTags>
+    <verb>read to</verb>
+    <gerund>reading to</gerund>
+    <priorityInType>11</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+      <li>Sight</li>
+      <li>Talking</li>
+    </requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <JobDef>
+    <defName>BBLK_Job_PatientStory</defName>
+    <reportString>reading TargetC to TargetB.</reportString>
+    <driverClass>Read_to_Patients.JobDriver_PatientStory</driverClass>
+    <casualInterruptible>false</casualInterruptible>
+    <joyDuration>3600</joyDuration> <!-- 60 sec -->
+    <joyKind>Reading</joyKind>
+  </JobDef>
+
+  <JobDef>
+    <defName>BBLK_Job_PatientListen</defName>
+    <reportString>listening to TargetA.</reportString>
+    <driverClass>Read_to_Patients.JobDriver_PatientListen</driverClass>
+    <casualInterruptible>false</casualInterruptible>
+    <joyDuration>3600</joyDuration> <!-- 60 sec -->
+    <joyKind>Reading</joyKind>
+  </JobDef>
+
+  <InteractionDef>
+    <defName>BBLK_PatientStory</defName>
+    <label>read</label>
+    <workerClass>InteractionWorker</workerClass>
+    <initiatorXpGainSkill>Social</initiatorXpGainSkill>
+    <initiatorXpGainAmount>1</initiatorXpGainAmount>
+    <ignoreTimeSinceLastInteraction>True</ignoreTimeSinceLastInteraction>
+    <symbol>Things/Item/Book/Novel/Novel_Open_east</symbol>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry(p=4)->[RECIPIENT_nameDef] [reaction].</li>
+        <li MayRequire="Ludeon.RimWorld.Anomaly">r_logentry(INITIATOR_cubeInterest==false,RECIPIENT_cubeInterest==true)->[INITIATOR_nameDef] reads louder as [RECIPIENT_nameDef] mummbles something about a golden cube.</li>
+		
+        <li>reaction->listens[adj] to [INITIATOR_nameDef]</li>
+        <li>reaction->rests while [INITIATOR_nameDef] reads</li>
+		
+        <li>adj-></li>
+        <li>adj-> attentively</li>
+        <li>adj-> quietly</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+
+  <TaleDef>
+    <defName>BBLK_PatientStory_Tale</defName>
+    <label>bed time story told</label>
+    <taleClass>Read_to_Patients.Tale_DoublePawnAndThing</taleClass>
+    <type>Volatile</type>
+    <firstPawnSymbol>READER</firstPawnSymbol>
+    <secondPawnSymbol>PATIENT</secondPawnSymbol>
+    <baseInterest>1</baseInterest>
+    <rulePack>
+      <rulesStrings>
+        <li>tale_noun->[READER_nameDef] reading [THING_title] to [PATIENT_nameDef]</li> <!-- "this refers to" -->
+        <li>image->[READER_nameFull] reading [THING_title] to [PATIENT_nameFull] [circumstance_group]</li> <!-- 1st -->
+        <li>circumstance_phrase->as [PATIENT_pronoun] recovers</li> <!-- 2nd -->
+        <li>desc_sentence->[PATIENT_nameDef] [reaction].</li> <!-- 3rd -->
+        <li>desc_sentence->[READER_nameDef] is [action].</li>
+		
+        <li>reaction->is grimacing</li>
+        <li>reaction->looks pale</li>
+		
+        <li>action->turning a page in the book</li>
+
+      </rulesStrings>
+    </rulePack>
+  </TaleDef>
+
+</Defs>
