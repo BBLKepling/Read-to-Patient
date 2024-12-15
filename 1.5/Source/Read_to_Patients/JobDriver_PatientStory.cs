@@ -11,6 +11,8 @@ namespace Read_to_Patients
 
         private bool carrying;
 
+        private bool joyDesire;
+
         private const TargetIndex PatientInd = TargetIndex.B;
 
         private const TargetIndex BookInd = TargetIndex.C;
@@ -31,12 +33,14 @@ namespace Read_to_Patients
             job.count = 1;
             hasInInventory = pawn.inventory != null && pawn.inventory.Contains(Book);
             carrying = pawn?.carryTracker.CarriedThing == Book;
+            joyDesire = pawn.needs?.joy != null;
         }
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref hasInInventory, "hasInInventory", defaultValue: false);
             Scribe_Values.Look(ref carrying, "carrying", defaultValue: false);
+            Scribe_Values.Look(ref joyDesire, "joyDesire", defaultValue: false);
         }
         protected override IEnumerable<Toil> MakeNewToils()
         {
@@ -51,6 +55,7 @@ namespace Read_to_Patients
                     pawn.carryTracker.TryDropCarriedThing(pawn.Position, ThingPlaceMode.Direct, out var _);
                     return null;
                 }
+                TaleRecorder.RecordTale(ReadToPatientsDefOf.BBLK_PatientStory_Tale, pawn, Patient, Book);
                 return HaulAIUtility.HaulToStorageJob(pawn, Book);
             });
             AddFailCondition(() => !Patient.health.capacities.CapableOf(PawnCapacityDefOf.Hearing));
@@ -75,7 +80,7 @@ namespace Read_to_Patients
             yield return failIfNoBook;
             yield return Toils_Goto.GotoCell(Patient.PositionHeld, PathEndMode.ClosestTouch).FailOnDestroyedOrNull(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
             yield return GoToChair();
-            yield return ReadToil(job.def.joyDuration);
+            yield return ReadToil();
         }
         protected Toil FailIfNoBook()
         {
@@ -83,9 +88,9 @@ namespace Read_to_Patients
             toil.FailOn(() => !pawn.IsCarryingThing(Book));
             return toil;
         }
-        protected Toil ReadToil(int duration)
+        protected Toil ReadToil()
         {
-            Toil toil = Toils_General.Wait(duration);
+            Toil toil = ToilMaker.MakeToil("Read");
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.defaultDuration = job.def.joyDuration;
             toil.handlingFacing = true;
@@ -102,20 +107,25 @@ namespace Read_to_Patients
             };
             toil.tickAction = delegate
             {
-                if (Find.TickManager.TicksGame % 600 == 0)
+                if (Patient.CurJobDef != ReadToPatientsDefOf.BBLK_Job_PatientListen)
+                {
+                    pawn.jobs.curDriver.EndJobWith(JobCondition.InterruptForced);
+                }
+                bool hashTick = pawn.IsHashIntervalTick(600);
+                if (hashTick && pawn.RaceProps.Humanlike)
                 {
                     pawn.interactions.TryInteractWith(Patient, ReadToPatientsDefOf.BBLK_PatientStory);
                 }
                 pawn.GainComfortFromCellIfPossible();
-                if (pawn.CurJob != null && pawn.needs?.joy != null)
+                if (joyDesire && pawn.CurJob != null)
                 {
                     JoyUtility.JoyTickCheckEnd(pawn, JoyTickFullJoyAction.None, Book.JoyFactor * BookUtility.GetReadingBonus(pawn));
                 }
-                if ((Patient.CurJob.def == ReadToPatientsDefOf.BBLK_Job_PatientListen && Patient.needs?.joy != null && JoyUtility.JoyTickCheckEnd(Patient, JoyTickFullJoyAction.None, Book.JoyFactor * BookUtility.GetReadingBonus(Patient))) || ticksLeftThisToil <= 0)
+                if (JoyUtility.JoyTickCheckEnd(Patient, JoyTickFullJoyAction.EndJob, Book.JoyFactor * BookUtility.GetReadingBonus(Patient)) || ticksLeftThisToil <= 0)
                 {
-                    pawn.jobs.curDriver.ReadyForNextToil();
+                    pawn.jobs.curDriver.EndJobWith(JobCondition.Succeeded);
                 }
-                if (pawn.IsHashIntervalTick(600))
+                if (hashTick)
                 {
                     pawn.jobs.CheckForJobOverride(9.1f);
                 }
@@ -125,11 +135,10 @@ namespace Read_to_Patients
             {
                 Book.IsOpen = false;
                 job.showCarryingInspectLine = true;
-                Patient.jobs.StopAll();
-                Job newjob = JobMaker.MakeJob(JobDefOf.LayDownResting, Bed);
-                Patient.jobs.StartJob(newjob);
-                if (ticksLeftThisToil > 1000) return;
-                TaleRecorder.RecordTale(ReadToPatientsDefOf.BBLK_PatientStory_Tale, pawn, Patient, Book);
+                if (Patient.CurJobDef == ReadToPatientsDefOf.BBLK_Job_PatientListen)
+                {
+                    Patient.jobs.EndCurrentJob(JobCondition.Succeeded);
+                }
             });
             return toil;
         }
@@ -143,9 +152,9 @@ namespace Read_to_Patients
                 if (thing != null)
                 {
                     Toils_Ingest.TryFindFreeSittingSpotOnThing(thing, pawn, out readingSpot);
+                    pawn.ReserveSittableOrSpot(readingSpot, toil.actor.CurJob);
+                    pawn.Map.pawnDestinationReservationManager.Reserve(pawn, pawn.CurJob, readingSpot);
                 }
-                pawn.ReserveSittableOrSpot(readingSpot, toil.actor.CurJob);
-                pawn.Map.pawnDestinationReservationManager.Reserve(pawn, pawn.CurJob, readingSpot);
                 pawn.pather.StartPath(readingSpot, PathEndMode.OnCell);
             };
             toil.defaultCompleteMode = ToilCompleteMode.PatherArrival;

@@ -2,3 +2,7 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Read to Patients\1.5
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Read to Patients\1.5\Source\Read_to_Patients\obj\Debug\Read_to_Patients.csproj.AssemblyReference.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Read to Patients\1.5\Source\Read_to_Patients\obj\Debug\Read_to_Patients.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Read to Patients\1.5\Source\Read_to_Patients\obj\Debug\Read_to_Patients.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Read-to-Patient\1.5\Assemblies\Read_to_Patients.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Read-to-Patient\1.5\Source\Read_to_Patients\obj\Debug\Read_to_Patients.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Read-to-Patient\1.5\Source\Read_to_Patients\obj\Debug\Read_to_Patients.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Read-to-Patient\1.5\Source\Read_to_Patients\obj\Debug\Read_to_Patients.dll

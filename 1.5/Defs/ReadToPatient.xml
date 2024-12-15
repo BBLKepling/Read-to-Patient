@@ -17,7 +17,6 @@
       <li>Sight</li>
       <li>Talking</li>
     </requiredCapacities>
-    <canBeDoneByMechs>false</canBeDoneByMechs>
   </WorkGiverDef>
 
   <JobDef>
@@ -31,7 +30,7 @@
 
   <JobDef>
     <defName>BBLK_Job_PatientListen</defName>
-    <reportString>listening to TargetA.</reportString>
+    <reportString>listening to TargetB.</reportString>
     <driverClass>Read_to_Patients.JobDriver_PatientListen</driverClass>
     <casualInterruptible>false</casualInterruptible>
     <joyDuration>3600</joyDuration> <!-- 60 sec -->
@@ -75,12 +74,12 @@
         <li>image->[READER_nameFull] reading [THING_title] to [PATIENT_nameFull] [circumstance_group]</li> <!-- 1st -->
         <li>circumstance_phrase->as [PATIENT_pronoun] recovers</li> <!-- 2nd -->
         <li>desc_sentence->[PATIENT_nameDef] [reaction].</li> <!-- 3rd -->
-        <li>desc_sentence->[READER_nameDef] is [action].</li>
+        <li>desc_sentence->[READER_nameDef] [action].</li>
 		
         <li>reaction->is grimacing</li>
         <li>reaction->looks pale</li>
 		
-        <li>action->turning a page in the book</li>
+        <li>action->is turning a page in the book</li>
 
       </rulesStrings>
     </rulePack>
