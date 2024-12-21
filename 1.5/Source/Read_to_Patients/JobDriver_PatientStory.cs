@@ -139,6 +139,11 @@ namespace Read_to_Patients
                 {
                     Patient.jobs.EndCurrentJob(JobCondition.Succeeded);
                 }
+                if (Patient.health.State == PawnHealthState.Down)
+                {
+                    Patient.jobs.StopAll();
+                    Patient.jobs.StartJob(JobMaker.MakeJob(JobDefOf.LayDown, Bed));
+                }
             });
             return toil;
         }
