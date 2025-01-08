@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Nurse Job</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/WorkGiverDef[defName="BBLK_Doctor_PatientStory"]/workType</xpath>
+      <value>
+        <workType>Nursing</workType>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

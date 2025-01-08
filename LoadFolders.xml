@@ -1,5 +1,7 @@
 <loadFolders>
   <v1.5>
     <li>1.5</li>
+    <li IfModActive="Niilo007.NiilosQoL">1.5/Niilo</li>
+    <li IfModNotActive="Niilo007.NiilosQoL">1.5/NoNiilo</li>
   </v1.5>
 </loadFolders>
