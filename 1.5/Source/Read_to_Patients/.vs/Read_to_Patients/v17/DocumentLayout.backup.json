@@ -3,7 +3,10 @@
   "WorkspaceRootPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4286FCBC-ED91-454D-9D37-3E32FE4B1D04}|Read_to_Patients.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\jobdriver_patientstory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Read_to_Patients||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4286FCBC-ED91-454D-9D37-3E32FE4B1D04}|Read_to_Patients.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\read-to-patient\\1.5\\source\\read_to_patients\\jobdriver_patientstory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4286FCBC-ED91-454D-9D37-3E32FE4B1D04}|Read_to_Patients.csproj|solutionrelative:jobdriver_patientstory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,8 +26,11 @@
       "RelativeMoniker": "D:0:0:{4286FCBC-ED91-454D-9D37-3E32FE4B1D04}|Read_to_Patients.csproj|solutionrelative:workgiver_patientstory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4286FCBC-ED91-454D-9D37-3E32FE4B1D04}|Read_to_Patients.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\read-to-patient\\1.5\\source\\read_to_patients\\tale_doublepawnandthing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4286FCBC-ED91-454D-9D37-3E32FE4B1D04}|Read_to_Patients.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\tale_doublepawnandthing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4286FCBC-ED91-454D-9D37-3E32FE4B1D04}|Read_to_Patients.csproj|solutionrelative:tale_doublepawnandthing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4286FCBC-ED91-454D-9D37-3E32FE4B1D04}|Read_to_Patients.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\read-to-patient\\1.5\\source\\read_to_patients\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +40,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Read_to_Patients",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\Read_to_Patients.csproj",
+              "RelativeDocumentMoniker": "Read_to_Patients.csproj",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\Read_to_Patients.csproj",
+              "RelativeToolTip": "Read_to_Patients.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-08T04:01:10.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "JobDriver_PatientListen.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\JobDriver_PatientListen.cs",
               "RelativeDocumentMoniker": "JobDriver_PatientListen.cs",
@@ -46,12 +64,11 @@
               "RelativeToolTip": "JobDriver_PatientListen.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T05:27:24.101Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T05:27:24.101Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "JobDriver_PatientStory.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\JobDriver_PatientStory.cs",
               "RelativeDocumentMoniker": "JobDriver_PatientStory.cs",
@@ -64,7 +81,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "WorkGiver_PatientStory.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\WorkGiver_PatientStory.cs",
               "RelativeDocumentMoniker": "WorkGiver_PatientStory.cs",
@@ -72,12 +89,11 @@
               "RelativeToolTip": "WorkGiver_PatientStory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T05:25:13.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T05:25:13.317Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Tale_DoublePawnAndThing.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\Tale_DoublePawnAndThing.cs",
               "RelativeDocumentMoniker": "Tale_DoublePawnAndThing.cs",
@@ -85,12 +101,11 @@
               "RelativeToolTip": "Tale_DoublePawnAndThing.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T05:24:11.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T05:24:11.916Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ReadToPatientsUtility.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\ReadToPatientsUtility.cs",
               "RelativeDocumentMoniker": "ReadToPatientsUtility.cs",
@@ -98,12 +113,11 @@
               "RelativeToolTip": "ReadToPatientsUtility.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T05:22:48.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T05:22:48.352Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ReadToPatientsDefOf.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Read-to-Patient\\1.5\\Source\\Read_to_Patients\\ReadToPatientsDefOf.cs",
               "RelativeDocumentMoniker": "ReadToPatientsDefOf.cs",
@@ -111,8 +125,7 @@
               "RelativeToolTip": "ReadToPatientsDefOf.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T05:20:35.109Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T05:20:35.109Z"
             }
           ]
         }
