@@ -11,6 +11,17 @@
         <workType>Nursing</workType>
       </value>
     </match>
+    <nomatch Class="PatchOperationFindMod">
+      <mods>
+        <li>[FSF] Complex Jobs</li>
+      </mods>
+      <match Class="PatchOperationReplace">
+        <xpath>Defs/WorkGiverDef[defName="BBLK_Doctor_PatientStory"]/workType</xpath>
+        <value>
+          <workType>FSFNurse</workType>
+        </value>
+      </match>
+    </nomatch>
   </Operation>
 
 </Patch>

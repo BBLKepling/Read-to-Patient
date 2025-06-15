@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Nurse Job</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/WorkGiverDef[defName="BBLK_Doctor_PatientStory"]/workType</xpath>
+      <value>
+        <workType>Nursing</workType>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationFindMod">
+      <mods>
+        <li>[FSF] Complex Jobs</li>
+      </mods>
+      <match Class="PatchOperationReplace">
+        <xpath>Defs/WorkGiverDef[defName="BBLK_Doctor_PatientStory"]/workType</xpath>
+        <value>
+          <workType>FSFNurse</workType>
+        </value>
+      </match>
+      <nomatch Class="PatchOperationFindMod">
+        <mods>
+          <li>Niilo's QoL</li>
+        </mods>
+        <match Class="NQualityOfLife.XML.PatchIfEnabledAndExists">
+          <settingKey>NiilosQoL_Settings_Work_Nurse</settingKey>
+          <xpath>Defs/WorkGiverDef[defName="BBLK_Doctor_PatientStory"]</xpath>
+          <enabledAndExists Class="PatchOperationReplace">
+            <xpath>Defs/WorkGiverDef[defName="BBLK_Doctor_PatientStory"]/workType</xpath>
+            <value>
+              <workType>NQoL_Nurse</workType>
+            </value>
+          </enabledAndExists>
+        </match>
+      </nomatch>
+    </nomatch>
+  </Operation>
+
+</Patch>
