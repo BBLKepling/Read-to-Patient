@@ -58,6 +58,11 @@
         <li>adj-> quietly</li>
       </rulesStrings>
     </logRulesInitiator>
+    <modExtensions>
+      <li Class="LoveyDoveySexWithEuterpe.IntimacyModExtension" MayRequire="LovelyDovey.Sex.WithEuterpe">
+        <isIntimateInteraction>true</isIntimateInteraction>
+      </li>
+    </modExtensions>
   </InteractionDef>
 
   <TaleDef>
